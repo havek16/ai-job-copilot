@@ -105,7 +105,7 @@ async def run_agent(
     """
     logger.info(
         f"Received /run-agent request",
-        extra={"filename": resume_file.filename, "jd_length": len(job_description)},
+        extra={"resume_filename": resume_file.filename, "jd_length": len(job_description)},
     )
 
     # ── Validate inputs ───────────────────────────────────────────────────

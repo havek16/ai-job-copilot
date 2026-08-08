@@ -114,7 +114,7 @@ def test_run_agent_success(mocker):
     response = client.post(
         "/run-agent",
         data={"job_description": long_jd},
-        files={"resume_file": ("resume.pdf", b"Mock PDF resume data", "application/pdf")},
+        files={"resume_file": ("resume.txt", b"Mock resume text content", "text/plain")},
     )
 
     assert response.status_code == 200
