@@ -21,8 +21,8 @@ logs/
 .gitignore
 
 # ── Deploy scripts (not needed inside containers) ────────────────────────────
-deploy/
-
+deploy/!deploy/
+!deploy/streamlit_config.toml
 # ── Eval data (not needed at runtime) ────────────────────────────────────────
 eval/
 
