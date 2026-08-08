@@ -1,0 +1,59 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Dockerfile.api — FastAPI backend
+#
+# Multi-stage build:
+#   Stage 1 (builder): install deps into a venv
+#   Stage 2 (runtime): copy only the venv + source, no build tools
+# This keeps the final image ~200 MB instead of ~800 MB.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Stage 1: dependency builder ───────────────────────────────────────────────
+FROM python:3.11-slim AS builder
+
+WORKDIR /app
+
+# Install build dependencies needed by some packages (e.g. pdfplumber)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create virtual environment
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+
+
+# ── Stage 2: runtime image ────────────────────────────────────────────────────
+FROM python:3.11-slim AS runtime
+
+WORKDIR /app
+
+# Copy the venv from builder
+COPY --from=builder /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Copy application source
+COPY src/ ./src/
+COPY api.py .
+
+# Create logs directory (will be overridden by Docker volume in production)
+RUN mkdir -p logs
+
+# Non-root user for security
+RUN adduser --disabled-password --gecos "" appuser \
+    && chown -R appuser:appuser /app
+USER appuser
+
+# Expose FastAPI port
+EXPOSE 8000
+
+# Health check — hits the /health endpoint
+HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"
+
+# Run with uvicorn (production workers)
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]

@@ -1,0 +1,32 @@
+# ── Python cache ──────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+
+# ── Local dev ─────────────────────────────────────────────────────────────────
+.env
+.venv/
+venv/
+env/
+
+# ── Logs (generated at runtime, mounted as a volume) ─────────────────────────
+logs/
+
+# ── Streamlit local state ─────────────────────────────────────────────────────
+.streamlit/
+
+# ── Git ───────────────────────────────────────────────────────────────────────
+.git/
+.gitignore
+
+# ── Deploy scripts (not needed inside containers) ────────────────────────────
+deploy/
+
+# ── Eval data (not needed at runtime) ────────────────────────────────────────
+eval/
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
