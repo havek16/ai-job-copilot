@@ -14,8 +14,14 @@ Run with:
     (Requires the FastAPI backend to be running: uvicorn api:app --reload)
 """
 
+import os
 import httpx
 import streamlit as st
+from dotenv import load_dotenv
+
+# Load env variables to obtain API_KEY if set
+load_dotenv()
+API_KEY = os.getenv("API_KEY", "")
 
 # ── Page configuration ────────────────────────────────────────────────────────
 st.set_page_config(
@@ -355,10 +361,12 @@ if run_btn:
 
         # Build multipart request
         try:
+            headers = {"X-API-Key": API_KEY} if API_KEY else {}
             response = httpx.post(
                 f"{API_BASE}/run-agent",
                 files={"resume_file": (resume_file.name, resume_file.getvalue(), resume_file.type)},
                 data={"job_description": job_description},
+                headers=headers,
                 timeout=120,  # 2 min — web search + 3 LLM calls can take a while
             )
             response.raise_for_status()

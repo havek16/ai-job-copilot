@@ -15,16 +15,18 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    # ── API Keys ──────────────────────────────────────────────────────────
+    # ── API Keys & Security ────────────────────────────────────────────────
     GROQ_API_KEY: str = ""
     GEMINI_API_KEY: str = ""
     TAVILY_API_KEY: str = ""
+    # Optional API key to protect FastAPI endpoints in production
+    API_KEY: str = ""
 
-    # ── LLM Settings ─────────────────────────────────────────────────────
-    # Groq model — llama-3.3-70b-versatile is fast and capable
+    # ── LLM Settings (Fully customizable via environment variables) ───────
+    # Default Groq model (e.g. llama-3.3-70b-versatile, llama-3.3-70b-specdec)
     GROQ_MODEL: str = "llama-3.3-70b-versatile"
-    # Gemini fallback model
-    GEMINI_MODEL: str = "gemini-2.0-flash"
+    # Default Gemini fallback model — override via GEMINI_MODEL env (e.g. gemini-2.5-flash)
+    GEMINI_MODEL: str = "gemini-2.5-flash"
     # Sampling temperature (lower = more deterministic structured output)
     TEMPERATURE: float = 0.3
     # Max tokens per LLM response

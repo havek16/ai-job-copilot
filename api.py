@@ -18,8 +18,9 @@ Run with:
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Security, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import APIKeyHeader
 
 from src.agent import AgentLoop
 from src.config import config
@@ -61,6 +62,23 @@ app.add_middleware(
 )
 
 
+# ── Security & Authentication ─────────────────────────────────────────────────
+
+api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
+
+
+async def verify_api_key(api_key: str = Security(api_key_header)) -> None:
+    """
+    Dependency to verify the request's X-API-Key header.
+    Only enforces authentication if config.API_KEY is configured (non-empty).
+    """
+    if config.API_KEY and api_key != config.API_KEY:
+        raise HTTPException(
+            status_code=403,
+            detail="Could not validate credentials. Invalid or missing X-API-Key header.",
+        )
+
+
 # ── Endpoints ─────────────────────────────────────────────────────────────────
 
 @app.get("/health", tags=["meta"])
@@ -73,6 +91,7 @@ async def health_check():
 async def run_agent(
     resume_file: UploadFile = File(..., description="PDF or TXT resume"),
     job_description: str = Form(..., description="Full job description text"),
+    _: None = Depends(verify_api_key),
 ) -> AgentResult:
     """
     Run the full 3-step job application pipeline.
