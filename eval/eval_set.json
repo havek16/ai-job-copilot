@@ -1,0 +1,92 @@
+[
+  {
+    "id": "eval_001",
+    "job_title": "Senior ML Engineer",
+    "company": "Stripe",
+    "notes": "Strong Python/ML match, some gap in distributed systems at scale",
+    "expected_score": 75,
+    "job_description": "We are looking for a Senior ML Engineer to join Stripe's ML Platform team. You will design and deploy large-scale ML systems that process billions of transactions. Requirements: 5+ years Python, strong ML fundamentals (gradient boosting, neural nets), experience with distributed systems (Spark, Flink), MLflow or similar experiment tracking, Kubernetes, strong understanding of data pipelines at scale. Nice to have: experience with fraud detection or risk modeling, Rust.",
+    "resume_snippet": "Software Engineer with 4 years experience. Python (expert), TensorFlow, PyTorch, scikit-learn. Built recommendation engine serving 2M users. MLflow for experiment tracking. Docker and basic Kubernetes. MS Computer Science. Familiar with SQL and Spark basics. No production fraud/risk ML experience."
+  },
+  {
+    "id": "eval_002",
+    "job_title": "Backend Engineer (Go)",
+    "company": "Cloudflare",
+    "notes": "Primary language mismatch (Python vs Go), but systems experience is transferable",
+    "expected_score": 35,
+    "job_description": "Cloudflare is hiring a Backend Engineer to work on our core networking stack. Requirements: 3+ years Go, deep knowledge of networking protocols (TCP/IP, DNS, HTTP/2, QUIC), experience with high-throughput systems (>100k RPS), Linux internals, eBPF is a big plus. We write almost no Python.",
+    "resume_snippet": "Python backend engineer, 4 years. FastAPI, Django, PostgreSQL. Some networking knowledge from university (TCP/IP fundamentals). No Go experience. Built REST APIs serving ~5k RPS. Linux user but no eBPF/kernel experience."
+  },
+  {
+    "id": "eval_003",
+    "job_title": "Data Scientist — NLP",
+    "company": "Cohere",
+    "notes": "Strong NLP alignment, gap in LLM pretraining infrastructure",
+    "expected_score": 68,
+    "job_description": "Cohere is looking for a Data Scientist specializing in NLP. You will fine-tune and evaluate large language models, build evaluation benchmarks, and work closely with our research team. Requirements: hands-on experience fine-tuning LLMs (PEFT, LoRA), strong Python, HuggingFace Transformers, experience with RAG systems, familiarity with pretraining infrastructure (preferred, not required).",
+    "resume_snippet": "NLP Engineer with 3 years experience. Built RAG pipeline for enterprise document QA using LangChain + OpenAI. Fine-tuned BERT and T5 models using HuggingFace. Python expert. Published one workshop paper on question answering. No experience with pretraining large models from scratch or PEFT/LoRA specifically."
+  },
+  {
+    "id": "eval_004",
+    "job_title": "AI/ML Engineer",
+    "company": "Anthropic",
+    "notes": "Very strong match — ML depth, safety interest, Python, research background",
+    "expected_score": 88,
+    "job_description": "Anthropic is hiring AI/ML Engineers to work on scaling and evaluating frontier models. You will implement training infrastructure, run large-scale experiments, build evaluation pipelines, and contribute to alignment research. Requirements: strong Python and PyTorch, experience training large neural networks, familiarity with RLHF or constitutional AI concepts, ability to read and implement ML papers. Research background highly valued.",
+    "resume_snippet": "ML Engineer with 5 years Python, PyTorch expert, implemented RLHF fine-tuning pipeline for 7B parameter model. Co-authored 2 papers on reward modeling. Deep experience with distributed training (DDP, FSDP). Built automated evaluation harness for LLMs. MS in ML from top-10 program. Familiar with Constitutional AI concepts from literature."
+  },
+  {
+    "id": "eval_005",
+    "job_title": "DevOps / Platform Engineer",
+    "company": "HashiCorp",
+    "notes": "Career pivot — software dev background, minimal DevOps/infra experience",
+    "expected_score": 22,
+    "job_description": "HashiCorp is hiring a Platform Engineer to build and maintain our internal developer platform. Requirements: 4+ years with Terraform, Vault, Consul. Deep Kubernetes and Helm experience. CI/CD pipeline design (Jenkins, GitHub Actions). On-call rotation. Experience designing multi-cloud infrastructure.",
+    "resume_snippet": "Software developer 3 years. Python and JavaScript. Used GitHub Actions for CI. Basic Terraform exposure (ran existing configs). No Vault, Consul, Kubernetes, or Helm experience. No on-call or infrastructure design experience."
+  },
+  {
+    "id": "eval_006",
+    "job_title": "Full Stack Engineer",
+    "company": "Linear",
+    "notes": "Solid match with some frontend depth gap",
+    "expected_score": 62,
+    "job_description": "Linear is looking for a Full Stack Engineer. Our stack: TypeScript, React, Node.js, PostgreSQL, GraphQL. You will own features end-to-end. Requirements: 3+ years TypeScript, React hooks and performance patterns, GraphQL API design, PostgreSQL. Nice to have: Rust for performance-critical paths, design sensibility.",
+    "resume_snippet": "Full stack engineer 4 years. TypeScript and React (3 years), Node.js, REST APIs. Basic GraphQL (consumed APIs, not designed them). PostgreSQL. No Rust. Frontend work has been functional, not performance-optimized. No strong design background."
+  },
+  {
+    "id": "eval_007",
+    "job_title": "Research Engineer — Robotics",
+    "company": "Physical Intelligence (Pi)",
+    "notes": "Domain mismatch — pure software background, no robotics or hardware",
+    "expected_score": 15,
+    "job_description": "Physical Intelligence is hiring Research Engineers for robot learning. Requirements: C++ and Python, ROS2, experience with sim-to-real transfer, manipulation tasks, reinforcement learning in continuous action spaces, real robot hardware experience required.",
+    "resume_snippet": "Software engineer 3 years. Python, some C++. Implemented RL algorithms in simulation (OpenAI Gym). No ROS experience, no real robot experience, no hardware background."
+  },
+  {
+    "id": "eval_008",
+    "job_title": "Applied Scientist — Recommendations",
+    "company": "Netflix",
+    "notes": "Good ML depth, mild gap on recommendation-specific techniques",
+    "expected_score": 71,
+    "job_description": "Netflix is hiring an Applied Scientist for our Recommendations team. Requirements: PhD or 4+ years industry experience in ML, experience with collaborative filtering and embedding-based retrieval, A/B testing and experimentation at scale, Python and Spark, publication record preferred.",
+    "resume_snippet": "Applied ML engineer 5 years. MS in Statistics. Built collaborative filtering model for e-commerce recommendations (matrix factorization + neural CF). Python, Spark, extensive A/B testing experience. One publication at RecSys workshop. No Netflix-scale experimentation, but ran A/B tests across 500k users."
+  },
+  {
+    "id": "eval_009",
+    "job_title": "Software Engineer — Early Stage Startup",
+    "company": "Stealth AI Startup (Seed)",
+    "notes": "Generalist profile at early stage — wide match, good fit for ambiguity",
+    "expected_score": 80,
+    "job_description": "Early-stage AI startup seeking our first engineering hire. You will build everything from scratch. We need: Python and at least one frontend framework, ability to ship fast and own the full stack, comfort with ambiguity, experience deploying to production (any cloud), interest in AI/ML. Startup experience preferred but not required.",
+    "resume_snippet": "Software engineer 4 years. Python (backend), React (frontend), shipped 3 products end-to-end. Deployed on AWS (EC2, Lambda, RDS). Built internal ML pipeline with Groq API. Comfortable with ambiguity. Worked at a 10-person startup for 2 years."
+  },
+  {
+    "id": "eval_010",
+    "job_title": "Security Engineer",
+    "company": "Okta",
+    "notes": "No security background — domain mismatch",
+    "expected_score": 12,
+    "job_description": "Okta is hiring a Security Engineer. Requirements: 4+ years in application security or cloud security, experience with penetration testing, threat modeling, SAST/DAST tools, OAuth 2.0 and OIDC deep knowledge, SOC 2 compliance experience.",
+    "resume_snippet": "Software developer. Python, REST APIs, basic HTTPS usage. No security engineering experience, no pen testing, no formal security training, no compliance experience."
+  }
+]
